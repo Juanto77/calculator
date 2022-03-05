@@ -1,33 +1,67 @@
 const startingNumber = 0;
-let currentResult = startingNumber;
-
-function userInput() {}
+let firstInput = startingNumber;
+let secondInput = 0;
+let calcOutput = 0;
+let currentOperator = '';
 
 //This will call proper function depending on which operator is selected and get the sum of the numbers entered
-function getSum() {}
-
-//reset the calculator
-function resetCalc() {}
-
-function add() {
-  currentResult += parseInt(display.value);
-  outputResult(currentResult, '');
+function operatorAssignment() {
+  return currentOperator == '+'
+    ? add()
+    : currentOperator == '-'
+    ? subtraction()
+    : currentOperator == '*'
+    ? multiply()
+    : divide();
 }
 
-function subtraction(num1, num2) {
-  return num1 - num2;
+function add() {
+  calcOutput += +secondInput;
+}
+
+function subtraction() {
+  return calcOutput !== 0
+    ? (calcOutput -= +secondInput)
+    : (calcOutput = +firstInput - +secondInput);
 }
 
 function divide() {
-  currentResult += display.value;
-  return num1 / num2;
+  return calcOutput !== 0
+    ? (calcOutput /= +secondInput)
+    : (calcOutput = +firstInput / +secondInput);
 }
 
 function multiply() {
-  return num1 * num2;
+  calcOutput *= secondInput;
 }
 
-divideBtn.addEventListener('click', divide);
-multiplyBtn.addEventListener('click', multiply);
-addBtn.addEventListener('click', add);
-subtractBtn.addEventListener('click', subtraction);
+function clearDisplay() {
+  display.textContent = `${parseInt(firstInput)} ${parseInt(secondInput)}`;
+}
+
+function declareResult() {
+  result.textContent = calcOutput;
+}
+
+//Reset the calculator
+function resetCalc() {
+  calcOutput = 0;
+  firstInput = 0;
+  secondInput = 0;
+  currentOperator = '';
+}
+
+function getSum() {
+  if (calcOutput == 0) {
+    calcOutput = +firstInput;
+    clearDisplay();
+    declareResult();
+  }
+  operatorAssignment();
+  clearDisplay();
+  declareResult();
+}
+
+equalBtn.addEventListener('click', getSum);
+// addBtn.addEventListener('click', add);
+// multiplyBtn.addEventListener('click', multiply);

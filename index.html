@@ -10,8 +10,14 @@
     <script src="./calculator.js" defer></script>
   </head>
   <body>
-    <h1 id="result">Result:</h1>
-    <h1 id="input">Input:</h1>
+    <h1>
+      Result:
+      <h1 id="result"></h1>
+    </h1>
+    <h1>
+      Input:
+      <h1 id="input"></h1>
+    </h1>
     <div class="calculator">
       <div class="numbers">
         <button class="number" value="7">7</button>
@@ -25,13 +31,13 @@
         <button class="number" value="3">3</button>
         <button class="number" value="0">0</button>
         <button class="operator" value=".">.</button>
-        <button class="operator" value="=">=</button>
+        <button id="btnEqual" class="equality" value="=">=</button>
       </div>
       <div class="operators">
-        <button id="btnAdd" class="operator">+</button>
-        <button id="btnSubtract" class="operator">-</button>
-        <button id="btnMultiply" class="operator">*</button>
-        <button id="btnDivide" class="operator">/</button>
+        <button id="btnAdd" class="operator" value="+">+</button>
+        <button id="btnSubtract" class="operator" value="-">-</button>
+        <button id="btnMultiply" class="operator" value="*">*</button>
+        <button id="btnDivide" class="operator" value="/">/</button>
       </div>
     </div>
   </body>

@@ -5,6 +5,9 @@
   height: auto;
   margin: auto;
 }
+h1 {
+  text-align: center;
+}
 
 #result,
 #input {
@@ -18,7 +21,8 @@
 }
 
 .number,
-.operator {
+.operator,
+.equality {
   width: 240px;
   padding: 15px;
   margin: 5px;
